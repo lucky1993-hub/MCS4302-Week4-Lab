@@ -1,0 +1,9 @@
+# Add these to your existing pubspec.yaml, then run: flutter pub get
+dependencies:
+  http: ^1.2.2        # you probably have this from Week 4
+  provider: ^6.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  fake_async: ^1.3.1  # only for the optional 503 test
