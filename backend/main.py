@@ -1,5 +1,5 @@
-"""MCS4302 running-system backend (Week 5): items API, fault-injection endpoints
-and a background-job log.
+"""
+MCS4302 running-system backend (Week 5, 6 and 7).
 
 Week 5 adds /job-log. Timestamps are taken from the SERVER clock, so an
 emulator whose clock drifts cannot distort the measured job delays.
@@ -17,9 +17,13 @@ from fastapi import FastAPI, Header, HTTPException, Query
 from fastapi.responses import Response
 from pydantic import BaseModel, Field, field_validator
 from week6 import router as week6_router
+from week7 import router as week7_router
 
-app = FastAPI(title="MCS4302 running system backend (Week 5)")
+app = FastAPI(title="MCS4302 running system backend")
 
+# Register Week 6 and Week 7 routers
+app.include_router(week6_router)
+app.include_router(week7_router)
 
 class ItemIn(BaseModel):
     name: str = Field(min_length=1, max_length=120)
